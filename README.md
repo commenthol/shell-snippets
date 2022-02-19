@@ -6,9 +6,13 @@ This collection has a focus on "somewhat" interoperable shell sippets which shou
 
 Please note that some scripts require a `bash` in order to function...
 
-You may want to run all "samples" with 
+to run the scripts on your local system
 
-    sh test_all.sh
+    sh test_all.sh 
+
+for checks on other unix systems make sure to have podman installed
+
+    ./scripts/test_run.sh
 
 # Unlicense
 

@@ -1,0 +1,68 @@
+=== argv.test.sh ===
+a
+b
+c
+d
+add help text here
+f
+1.0.0
+=== assert_cmds.test.sh ===
+ok
+FATAL: commands not found: not_there_cmd xx_yy_zz
+=== cwd.test.sh ===
+/snippets
+snippets
+=== echo_stderr.test.sh ===
+INFO for your info
+ERROR this is a error on stderr
+filtering...
+ERROR this is a error on stderr
+INFO for your info
+=== has_cmd.test.sh ===
+0
+127
+=== ip_from_hostname.test.sh ===
+
+
+
+=== iso_date.test.sh ===
+Sat Feb 19 12:18:31 UTC 2022
+2022-02-19T12:18:31+0000
+2022-02-19T12:18:31Z
+2038-01-19T03:14:07+0000
+2038-01-19T03:14:07Z
+2022-02-19T00:00:00+0000
+2022-02-19T00:00:00Z
+Sat Feb 19 12:18:31 Asia 2022
+2022-02-19T12:18:31+0000
+2022-02-19T12:18:31Z
+=== tcp.test.sh ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Sat, 19 Feb 2022 12:18:31 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Sun, 19 Feb 2023 12:18:31 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+0
+0
+124
+0
+124
+=== to_lower_case.test.sh ===
+hello world gÖrÜŞÜrÜz hoŞÇa kal groß
+hello world görüşürüz hoşça kal groß
+=== to_upper_case.test.sh ===
+HELLO WORLD GöRüşüRüZ HOşçA KAL GROß
+HELLO WORLD GÖRÜŞÜRÜZ HOŞÇA KAL GROSS

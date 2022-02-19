@@ -1,0 +1,57 @@
+=== argv.test.sh ===
+a
+b
+c
+d
+add help text here
+f
+1.0.0
+=== assert_cmds.test.sh ===
+ok
+FATAL: commands not found: not_there_cmd xx_yy_zz
+=== cwd.test.sh ===
+/snippets
+snippets
+=== echo_stderr.test.sh ===
+INFO for your info
+ERROR this is a error on stderr
+filtering...
+ERROR this is a error on stderr
+INFO for your info
+=== has_cmd.test.sh ===
+0
+127
+=== ip_from_hostname.test.sh ===
+match
+found www.duck.com match
+
+match
+found eff.org match
+=== iso_date.test.sh ===
+Sat Feb 19 12:18:21 UTC 2022
+2022-02-19T12:18:21+0000
+2022-02-19T12:18:21Z
+2038-01-19T03:14:07+0000
+2038-01-19T03:14:07Z
+date: invalid date 'TZ="America/Los_Angeles"'
+date: invalid date 'TZ="America/Los_Angeles"'
+Sat Feb 19 12:18:21 UTC 2022
+2022-02-19T12:18:21+0000
+2022-02-19T12:18:21Z
+=== tcp.test.sh ===
+timeout: can't execute 'bash': No such file or directory
+127
+timeout: can't execute 'bash': No such file or directory
+127
+timeout: can't execute 'bash': No such file or directory
+127
+timeout: can't execute 'bash': No such file or directory
+127
+timeout: can't execute 'bash': No such file or directory
+127
+=== to_lower_case.test.sh ===
+hello world gÖrÜŞÜrÜz hoŞÇa kal groß
+hello world görüşürüz hoşça kal groß
+=== to_upper_case.test.sh ===
+HELLO WORLD GöRüşüRüZ HOşçA KAL GROß
+HELLO WORLD GÖRÜŞÜRÜZ HOŞÇA KAL GROSS
