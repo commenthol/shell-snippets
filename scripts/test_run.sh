@@ -10,7 +10,7 @@ run_test_dockerized () {
 
 	echo "running $CONTAINER"
 
-	podman run -it \
+	podman run -it --rm \
 		--add-host www.aa.aa:127.0.0.1 \
 		--network=host \
 		-v "$CWD/..:/snippets" \
