@@ -1,4 +1,4 @@
-# sh-snippets
+# shell-snippets
 
 A collection of shell snippets
 
