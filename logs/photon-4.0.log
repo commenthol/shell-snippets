@@ -37,21 +37,24 @@ INFO for your info
 
 
 === iso_date.test.sh ===
-Wed Feb 23 20:59:27 UTC 2022
-2022-02-23T20:59:27+0000
-2022-02-23T20:59:27Z
+Wed Feb 23 21:17:02 UTC 2022
+2022-02-23T21:17:02+0000
+2022-02-23T21:17:02Z
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
-Wed Feb 23 20:59:27 Asia 2022
-2022-02-23T20:59:27+0000
-2022-02-23T20:59:27Z
+Wed Feb 23 21:17:02 Asia 2022
+2022-02-23T21:17:02+0000
+2022-02-23T21:17:02Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:27+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:27+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T20:59:27+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T20:59:27+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:02+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:02+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T21:17:02+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T21:17:02+0000"}
+=== npm_package_version.test.sh ===
+./npm_package_version.sh: line 4: tr: command not found
+
 === os_release.test.sh ===
 DISTRIB_ID="VMware Photon OS"
 DISTRIB_RELEASE="4.0"
@@ -70,13 +73,13 @@ PHOTON_BUILD_NUMBER=2f5aad892
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Wed, 23 Feb 2022 20:59:27 GMT
+Date: Wed, 23 Feb 2022 21:17:02 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 20:59:27 GMT
+Expires: Thu, 23 Feb 2023 21:17:02 GMT
 Cache-Control: max-age=31536000
 
 <html>

@@ -39,21 +39,23 @@ found www.duck.com match
 match
 found eff.org match
 === iso_date.test.sh ===
-Wed Feb 23 20:59:24 UTC 2022
-2022-02-23T20:59:24+0000
-2022-02-23T20:59:24Z
+Wed Feb 23 21:16:58 UTC 2022
+2022-02-23T21:16:58+0000
+2022-02-23T21:16:58Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
 date: invalid date 'TZ="America/Los_Angeles"'
 date: invalid date 'TZ="America/Los_Angeles"'
-Wed Feb 23 20:59:24 UTC 2022
-2022-02-23T20:59:24+0000
-2022-02-23T20:59:24Z
+Wed Feb 23 21:16:58 UTC 2022
+2022-02-23T21:16:58+0000
+2022-02-23T21:16:58Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:24+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:24+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T20:59:24+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T20:59:24+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:16:58+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:16:58+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T21:16:58+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T21:16:58+0000"}
+=== npm_package_version.test.sh ===
+1.2.3-4
 === os_release.test.sh ===
 3.15.0
 NAME="Alpine Linux"

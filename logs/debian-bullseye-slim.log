@@ -36,25 +36,27 @@ INFO for your info
 
 
 === iso_date.test.sh ===
-Wed Feb 23 20:59:24 UTC 2022
-2022-02-23T20:59:24+0000
-2022-02-23T20:59:24Z
+Wed Feb 23 21:16:59 UTC 2022
+2022-02-23T21:16:59+0000
+2022-02-23T21:16:59Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
 2022-02-23T08:00:00+0000
 2022-02-23T08:00:00Z
-Thu Feb 24 05:59:24 JST 2022
-2022-02-24T05:59:24+0900
-2022-02-23T20:59:24Z
+Thu Feb 24 06:16:59 JST 2022
+2022-02-24T06:16:59+0900
+2022-02-23T21:16:59Z
 === jsonlog.test.sh ===
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"DEBUG","msg":"","time:":"2022-02-23T20:59:24+0000"}
+{"level":"DEBUG","msg":"","time:":"2022-02-23T21:16:59+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"INFO","msg":"","time:":"2022-02-23T20:59:24+0000"}
+{"level":"INFO","msg":"","time:":"2022-02-23T21:16:59+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"ERROR","msg":"","time:":"2022-02-23T20:59:24+0000"}
+{"level":"ERROR","msg":"","time:":"2022-02-23T21:16:59+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"FATAL","msg":"","time:":"2022-02-23T20:59:24+0000"}
+{"level":"FATAL","msg":"","time:":"2022-02-23T21:16:59+0000"}
+=== npm_package_version.test.sh ===
+1.2.3-4
 === os_release.test.sh ===
 PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
 NAME="Debian GNU/Linux"
@@ -68,13 +70,13 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Wed, 23 Feb 2022 20:59:24 GMT
+Date: Wed, 23 Feb 2022 21:16:59 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 20:59:24 GMT
+Expires: Thu, 23 Feb 2023 21:16:59 GMT
 Cache-Control: max-age=31536000
 
 <html>
