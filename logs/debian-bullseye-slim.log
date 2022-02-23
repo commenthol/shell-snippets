@@ -12,6 +12,16 @@ FATAL: commands not found: not_there_cmd xx_yy_zz
 === cwd.test.sh ===
 /snippets
 snippets
+=== dotenv.test.sh ===
+export FOO='BAR'
+export HOME='/root'
+export HOSTNAME='nixtest'
+export OLDPWD='/'
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+export PWD='/snippets'
+export TERM='xterm'
+export WAT='1.0'
+export container='podman'
 === echo_stderr.test.sh ===
 INFO for your info
 ERROR this is a error on stderr
@@ -26,26 +36,45 @@ INFO for your info
 
 
 === iso_date.test.sh ===
-Sat Feb 19 12:18:22 UTC 2022
-2022-02-19T12:18:22+0000
-2022-02-19T12:18:22Z
+Wed Feb 23 20:59:24 UTC 2022
+2022-02-23T20:59:24+0000
+2022-02-23T20:59:24Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
-2022-02-19T08:00:00+0000
-2022-02-19T08:00:00Z
-Sat Feb 19 21:18:22 JST 2022
-2022-02-19T21:18:22+0900
-2022-02-19T12:18:22Z
+2022-02-23T08:00:00+0000
+2022-02-23T08:00:00Z
+Thu Feb 24 05:59:24 JST 2022
+2022-02-24T05:59:24+0900
+2022-02-23T20:59:24Z
+=== jsonlog.test.sh ===
+/snippets/jsonlog.test.sh: 15: Bad substitution
+{"level":"DEBUG","msg":"","time:":"2022-02-23T20:59:24+0000"}
+/snippets/jsonlog.test.sh: 15: Bad substitution
+{"level":"INFO","msg":"","time:":"2022-02-23T20:59:24+0000"}
+/snippets/jsonlog.test.sh: 15: Bad substitution
+{"level":"ERROR","msg":"","time:":"2022-02-23T20:59:24+0000"}
+/snippets/jsonlog.test.sh: 15: Bad substitution
+{"level":"FATAL","msg":"","time:":"2022-02-23T20:59:24+0000"}
+=== os_release.test.sh ===
+PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+NAME="Debian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Sat, 19 Feb 2022 12:18:22 GMT
+Date: Wed, 23 Feb 2022 20:59:24 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Sun, 19 Feb 2023 12:18:22 GMT
+Expires: Thu, 23 Feb 2023 20:59:24 GMT
 Cache-Control: max-age=31536000
 
 <html>

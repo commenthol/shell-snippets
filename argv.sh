@@ -1,4 +1,4 @@
-
+#----
 # a simple argument parser without getopts
 while [ $1 ]; do
 	case $1 in

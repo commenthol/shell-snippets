@@ -25,4 +25,5 @@ If you like to contribue with a shell snippet which might be of interest please 
 # References
 
 - https://github.com/alebcay/awesome-shell
+- https://guide.bash.academy/
 - http://www.subdude-site.com/WebPages_Local/RefInfo/Computer/Linux/handyCommandsAndScripts/ScriptSnippets/script_snippets.htm

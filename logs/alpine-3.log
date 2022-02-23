@@ -12,6 +12,17 @@ FATAL: commands not found: not_there_cmd xx_yy_zz
 === cwd.test.sh ===
 /snippets
 snippets
+=== dotenv.test.sh ===
+export FOO='BAR'
+export HOME='/root'
+export HOSTNAME='nixtest'
+export OLDPWD='/'
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+export PWD='/snippets'
+export SHLVL='3'
+export TERM='xterm'
+export WAT='1.0'
+export container='podman'
 === echo_stderr.test.sh ===
 INFO for your info
 ERROR this is a error on stderr
@@ -28,16 +39,29 @@ found www.duck.com match
 match
 found eff.org match
 === iso_date.test.sh ===
-Sat Feb 19 12:18:21 UTC 2022
-2022-02-19T12:18:21+0000
-2022-02-19T12:18:21Z
+Wed Feb 23 20:59:24 UTC 2022
+2022-02-23T20:59:24+0000
+2022-02-23T20:59:24Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
 date: invalid date 'TZ="America/Los_Angeles"'
 date: invalid date 'TZ="America/Los_Angeles"'
-Sat Feb 19 12:18:21 UTC 2022
-2022-02-19T12:18:21+0000
-2022-02-19T12:18:21Z
+Wed Feb 23 20:59:24 UTC 2022
+2022-02-23T20:59:24+0000
+2022-02-23T20:59:24Z
+=== jsonlog.test.sh ===
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:24+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:24+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T20:59:24+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T20:59:24+0000"}
+=== os_release.test.sh ===
+3.15.0
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.15.0
+PRETTY_NAME="Alpine Linux v3.15"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://bugs.alpinelinux.org/"
 === tcp.test.sh ===
 timeout: can't execute 'bash': No such file or directory
 127

@@ -2,6 +2,9 @@
 
 CWD=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
+NETWORK=host
+# NETWORK=bridge
+
 . ./assert_cmds.sh
 
 run_test_dockerized () {
@@ -12,7 +15,8 @@ run_test_dockerized () {
 
 	podman run -it --rm \
 		--add-host www.aa.aa:127.0.0.1 \
-		--network=host \
+		--hostname nixtest \
+		--network=$NETWORK \
 		-v "$CWD/..:/snippets" \
 		$CONTAINER \
 		sh -c "cd /snippets; sh test_all.sh" | tee "$CWD/../logs/$LOG.log" 2>&1

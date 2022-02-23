@@ -1,4 +1,5 @@
 
+#----
 # get an ip from a hostname
 # NOTE: Always is "match" on alpine busybox
 # NOTE: debian needs `apt install net-tools``

@@ -1,6 +1,7 @@
 
 TIMEOUT=1s
 
+#----
 # a http get request
 # @param {string} HOSTNAME
 # @param {number} [PORT=80]
@@ -22,6 +23,7 @@ EOS
 	timeout $TIMEOUT bash -c "$CMD"
 }
 
+#----
 # tcp connect to cehck connnectivity
 # @param {string} HOSTNAME
 # @param {number} [PORT=80]

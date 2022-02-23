@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-####
+#----
 # a poor mans cron job for daily tasks only
 # in case you need a simple solution to run scheduled tasks without setting up a cron daemon and job
 

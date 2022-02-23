@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-####
+#----
 # update-ca-certificates on any linux distribution
 # make sure that your self-signed root certificates are stored in $CA_DIR
 #

@@ -1,6 +1,7 @@
 
 . ./has_cmd.sh
 
+#----
 # assert that commands are available on the system
 assert_cmds () {
 	local NOT_FOUND

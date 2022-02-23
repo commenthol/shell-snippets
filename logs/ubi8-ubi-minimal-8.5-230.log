@@ -12,6 +12,24 @@ FATAL: commands not found: not_there_cmd xx_yy_zz
 === cwd.test.sh ===
 /snippets
 snippets
+=== dotenv.test.sh ===
+./dotenv.sh: line 5: xargs: command not found
+export HOME="/root"
+export HOSTNAME="nixtest"
+export OLDPWD="/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PWD="/snippets"
+export SHLVL="3"
+export TERM="xterm"
+export container="oci"
+export HOME="/root"
+export HOSTNAME="nixtest"
+export OLDPWD="/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PWD="/snippets"
+export SHLVL="3"
+export TERM="xterm"
+export container="oci"
 === echo_stderr.test.sh ===
 INFO for your info
 ERROR this is a error on stderr
@@ -26,26 +44,51 @@ INFO for your info
 
 
 === iso_date.test.sh ===
-Sat Feb 19 12:18:28 UTC 2022
-2022-02-19T12:18:28+0000
-2022-02-19T12:18:28Z
+Wed Feb 23 20:59:30 UTC 2022
+2022-02-23T20:59:30+0000
+2022-02-23T20:59:30Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
-2022-02-19T00:00:00+0000
-2022-02-19T00:00:00Z
-Sat Feb 19 12:18:28 Asia 2022
-2022-02-19T12:18:28+0000
-2022-02-19T12:18:28Z
+2022-02-23T00:00:00+0000
+2022-02-23T00:00:00Z
+Wed Feb 23 20:59:30 Asia 2022
+2022-02-23T20:59:30+0000
+2022-02-23T20:59:30Z
+=== jsonlog.test.sh ===
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:30+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T20:59:30+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T20:59:30+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T20:59:30+0000"}
+=== os_release.test.sh ===
+NAME="Red Hat Enterprise Linux"
+VERSION="8.5 (Ootpa)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="8.5"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Red Hat Enterprise Linux 8.5 (Ootpa)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:redhat:enterprise_linux:8::baseos"
+HOME_URL="https://www.redhat.com/"
+DOCUMENTATION_URL="https://access.redhat.com/documentation/red_hat_enterprise_linux/8/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 8"
+REDHAT_BUGZILLA_PRODUCT_VERSION=8.5
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="8.5"
+Red Hat Enterprise Linux release 8.5 (Ootpa)
+Red Hat Enterprise Linux release 8.5 (Ootpa)
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Sat, 19 Feb 2022 12:18:28 GMT
+Date: Wed, 23 Feb 2022 20:59:30 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Sun, 19 Feb 2023 12:18:28 GMT
+Expires: Thu, 23 Feb 2023 20:59:30 GMT
 Cache-Control: max-age=31536000
 
 <html>

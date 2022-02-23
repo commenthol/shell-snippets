@@ -13,6 +13,9 @@ all () {
 }
 
 all
+
+## Change network from bridge to host in scripts/test_run.sh
+## Start ./test/server.js in another terminal
 # sh "./update_certificates.test.sh"
 
 ## single tests
