@@ -1,6 +1,7 @@
 
 #----
 # lower case transliteration for ascii chars only
+# `tr` not available on photon
 ascii_to_lower_case () {
 	tr "[A-Z]" "[a-z]"
 }
