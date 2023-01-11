@@ -13,6 +13,8 @@ FATAL: commands not found: not_there_cmd xx_yy_zz
 /snippets
 snippets
 === dotenv.test.sh ===
+--- no export on each line
+export BAZ="\"spaces-are-not-working\""
 export FOO="BAR"
 export HOME="/root"
 export HOSTNAME="nixtest"
@@ -24,6 +26,25 @@ export PWD="/snippets"
 export SHLVL="3"
 export TERM="xterm"
 export WAT="1.0"
+FOO=BAR
+BAZ="spaces-are-not-working"
+COMMENTED=
+--- export on each line
+export BAZ="with spaces"
+export FOO="BAR"
+export HOME="/root"
+export HOSTNAME="nixtest"
+export LOG="photon-4.0"
+export MY_TEST="1"
+export OLDPWD="/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PWD="/snippets"
+export SHLVL="3"
+export TERM="xterm"
+export WAT="1.0"
+FOO=BAR
+BAZ=with spaces
+COMMENTED=
 === echo_stderr.test.sh ===
 INFO for your info
 ERROR this is an error on stderr
@@ -34,27 +55,27 @@ INFO for your info
 0
 1
 === ip_from_hostname.test.sh ===
-52.142.124.215
-found www.duck.com 52.142.124.215
+40.114.177.156
+found www.duck.com 40.114.177.156
 
 173.239.79.196
 found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Jan 11 18:32:45 UTC 2023
-2023-01-11T18:32:45+0000
-2023-01-11T18:32:45Z
+Wed Jan 11 20:13:19 UTC 2023
+2023-01-11T20:13:19+0000
+2023-01-11T20:13:19Z
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
-Wed Jan 11 18:32:45 Asia 2023
-2023-01-11T18:32:45+0000
-2023-01-11T18:32:45Z
+Wed Jan 11 20:13:19 Asia 2023
+2023-01-11T20:13:19+0000
+2023-01-11T20:13:19Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:45+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:45+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2023-01-11T18:32:45+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2023-01-11T18:32:45+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2023-01-11T20:13:19+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2023-01-11T20:13:19+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2023-01-11T20:13:19+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2023-01-11T20:13:19+0000"}
 === npm_package_version.test.sh ===
 ./npm_package_version.sh: line 4: tr: command not found
 
@@ -142,29 +163,29 @@ No ALPN negotiated
 SSL-Session:
     Protocol  : TLSv1.2
     Cipher    : ECDHE-RSA-AES128-GCM-SHA256
-    Session-ID: D3DCA530E4885375B7EE715E6F70BAE2B50775CDE1BDF949CD4F7D7C3031440E
+    Session-ID: EE15AF3F7B43EC1138AE8EEC1C7C0765FC83439E199F93313CEB3C1FD7E37CB1
     Session-ID-ctx: 
-    Master-Key: F471A63BA4F2D8229BD357676C94E2C8F93CE99A2B533589F08764AFD28D042DC627C3AF59416951F384D5F39D6E7D54
+    Master-Key: 694C349F127958AE67014D796FE1009C836409966228E6CCC7358648332239E55AEFF745E298132F89A15B712B419FDB
     PSK identity: None
     PSK identity hint: None
     SRP username: None
     TLS session ticket lifetime hint: 300 (seconds)
     TLS session ticket:
     0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
-    0010 - 95 b6 f1 de 42 a3 78 09-72 60 da e4 10 da cf 95   ....B.x.r`......
-    0020 - a9 7e c9 69 ef 7f 02 b6-af e0 00 26 d5 cc b9 d0   .~.i.......&....
-    0030 - de 99 2c e1 59 ed 65 95-e9 4e 12 c3 06 3f 40 29   ..,.Y.e..N...?@)
-    0040 - d3 80 7a b6 11 8e 0b 3c-20 67 c8 11 83 9f eb 85   ..z....< g......
-    0050 - 72 b0 f5 ff e2 3b 2a 71-90 d3 97 b0 c8 d3 7d ec   r....;*q......}.
-    0060 - e4 dd f3 1b 42 d0 a6 af-c3 5e a3 56 75 ea 93 02   ....B....^.Vu...
-    0070 - d2 e6 1a 2b 86 f9 8c 6a-5f c6 fe eb ee a5 7d 9b   ...+...j_.....}.
-    0080 - da 63 75 7a fa f2 45 f4-d6 5e d0 8b 4d e3 b8 94   .cuz..E..^..M...
-    0090 - 8d 76 cf 2e f0 65 47 2f-c2 4d f3 64 f2 02 b8 e8   .v...eG/.M.d....
-    00a0 - bf c1 94 a4 32 51 c3 b2-83 dc 18 bc ae 2d 29 2b   ....2Q.......-)+
-    00b0 - ac a0 a6 6c f0 78 81 aa-db 66 cd 36 ae 8f 24 93   ...l.x...f.6..$.
-    00c0 - 50 90 e7 67 18 6c 7a 75-cc ab af 46 93 42 dc cb   P..g.lzu...F.B..
+    0010 - 1d 60 6d 4b ab f7 3f fa-5b ba ab 4a ac bb fd a5   .`mK..?.[..J....
+    0020 - a7 0b 0f a4 c0 78 4d 69-2d 74 a4 7a 8a 37 db e2   .....xMi-t.z.7..
+    0030 - b8 7b ec c2 0c 48 85 96-c3 92 ea 3e 29 ca 0b d0   .{...H.....>)...
+    0040 - 7e 77 27 ab b9 29 59 15-77 cd a9 a6 ac 81 bf 12   ~w'..)Y.w.......
+    0050 - 31 09 6b 04 0e 42 ef 18-19 6b cb 55 ae 83 86 82   1.k..B...k.U....
+    0060 - fa 14 96 47 f4 7f b6 3e-6b 81 7a bc 62 ce 17 bc   ...G...>k.z.b...
+    0070 - 35 4f 0b 23 62 23 a8 1f-12 bb b5 7c 35 06 53 5e   5O.#b#.....|5.S^
+    0080 - 7d e9 98 51 46 27 63 c6-2f f1 70 84 17 bb d5 b9   }..QF'c./.p.....
+    0090 - 90 c8 8b 0f 32 a4 51 7d-d5 6f a6 36 f0 62 20 48   ....2.Q}.o.6.b H
+    00a0 - 92 0d d6 e2 34 b6 bf 95-c4 18 ea 74 c8 cf 48 0f   ....4......t..H.
+    00b0 - 1a 01 5b 3c f8 e1 ec 69-ee a0 dd 57 2a ce a0 81   ..[<...i...W*...
+    00c0 - 1f e6 45 ff 13 71 e4 32-15 b7 92 44 fa 3a fd 56   ..E..q.2...D.:.V
 
-    Start Time: 1673461965
+    Start Time: 1673467999
     Timeout   : 7200 (sec)
     Verify return code: 18 (self-signed certificate)
     Extended master secret: no
@@ -183,13 +204,13 @@ notAfter=Apr 12 23:59:59 2015 GMT
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Wed, 11 Jan 2023 18:32:48 GMT
+Date: Wed, 11 Jan 2023 20:13:23 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Thu, 11 Jan 2024 18:32:48 GMT
+Expires: Thu, 11 Jan 2024 20:13:23 GMT
 Cache-Control: max-age=31536000
 
 <html>

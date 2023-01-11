@@ -19,5 +19,5 @@ all
 # sh "./update_certificates.test.sh"
 
 ## single tests
-# sh "./to_lower_case.test.sh"
+# sh "./dotenv.test.sh"
 

@@ -36,6 +36,6 @@ run_test_dockerized () {
 run_test_dockerized docker.io/library/alpine:3
 run_test_dockerized docker.io/library/debian:bullseye-slim
 run_test_dockerized docker.io/library/photon:4.0
-run_test_dockerized quay.io/app-sre/ubi8-ubi-minimal:8.5-230
+run_test_dockerized quay.io/app-sre/ubi8-ubi-minimal:8.7
 run_test_dockerized docker.io/library/ubuntu:22.04
 "$CWD"/../test_all.sh | tee "$CWD"/../logs/current.log 2>&1

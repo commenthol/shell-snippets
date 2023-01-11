@@ -5,7 +5,7 @@ CWD=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 . "$CWD"/../has_cmd.sh
 . "$CWD"/../package_tool.sh
 
-if [ $MY_TEST ]; then
+if [ $MY_TEST = "1" ]; then
 	if [ $(has_cmd bash) -ne 0 ]; then
 		package_update
 		package_install bash

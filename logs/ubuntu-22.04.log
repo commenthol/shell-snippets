@@ -13,6 +13,8 @@ FATAL: commands not found: not_there_cmd xx_yy_zz
 /snippets
 snippets
 === dotenv.test.sh ===
+--- no export on each line
+export BAZ='"spaces-are-not-working"'
 export FOO='BAR'
 export HOME='/root'
 export HOSTNAME='nixtest'
@@ -23,6 +25,24 @@ export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 export PWD='/snippets'
 export TERM='xterm'
 export WAT='1.0'
+FOO=BAR
+BAZ="spaces-are-not-working"
+COMMENTED=
+--- export on each line
+export BAZ='with spaces'
+export FOO='BAR'
+export HOME='/root'
+export HOSTNAME='nixtest'
+export LOG='ubuntu-22.04'
+export MY_TEST='1'
+export OLDPWD='/'
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+export PWD='/snippets'
+export TERM='xterm'
+export WAT='1.0'
+FOO=BAR
+BAZ=with spaces
+COMMENTED=
 === echo_stderr.test.sh ===
 INFO for your info
 ERROR this is an error on stderr
@@ -39,25 +59,25 @@ found www.duck.com 52.142.124.215
 173.239.79.196
 found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Jan 11 18:33:47 UTC 2023
-2023-01-11T18:33:47+0000
-2023-01-11T18:33:47Z
+Wed Jan 11 20:14:17 UTC 2023
+2023-01-11T20:14:17+0000
+2023-01-11T20:14:17Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
 2023-01-11T00:00:00+0000
 2023-01-11T00:00:00Z
-Wed Jan 11 18:33:47 Asia 2023
-2023-01-11T18:33:47+0000
-2023-01-11T18:33:47Z
+Wed Jan 11 20:14:17 Asia 2023
+2023-01-11T20:14:17+0000
+2023-01-11T20:14:17Z
 === jsonlog.test.sh ===
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"DEBUG","msg":"","time:":"2023-01-11T18:33:47+0000"}
+{"level":"DEBUG","msg":"","time:":"2023-01-11T20:14:17+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"INFO","msg":"","time:":"2023-01-11T18:33:47+0000"}
+{"level":"INFO","msg":"","time:":"2023-01-11T20:14:17+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"ERROR","msg":"","time:":"2023-01-11T18:33:47+0000"}
+{"level":"ERROR","msg":"","time:":"2023-01-11T20:14:17+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"FATAL","msg":"","time:":"2023-01-11T18:33:47+0000"}
+{"level":"FATAL","msg":"","time:":"2023-01-11T20:14:17+0000"}
 === npm_package_version.test.sh ===
 1.2.3-4
 === os_release.test.sh ===
@@ -146,29 +166,29 @@ No ALPN negotiated
 SSL-Session:
     Protocol  : TLSv1.2
     Cipher    : ECDHE-RSA-AES128-GCM-SHA256
-    Session-ID: 8F8BCD87C82FBC3B482EEC7CBE1407419B8C9121E8570D7B28DD646A36902BA0
+    Session-ID: CCBA8AD656A182997039B9F0E499DA34E3B0EBDF1A32ED75C0E9545162872815
     Session-ID-ctx: 
-    Master-Key: DF87BA76FAFF39B638278A6A3DD0627D609FE375D262123E11F599FB561DAF04EEE0C84E009D78819FDA4807B78BD3F3
+    Master-Key: 14D1800047E5BA4942B4C55B22009F50389F0A5C7E6C89707CC52DFB271F6D6EF5956661F84CAF5AE3D7511A2B301560
     PSK identity: None
     PSK identity hint: None
     SRP username: None
     TLS session ticket lifetime hint: 300 (seconds)
     TLS session ticket:
     0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
-    0010 - 7f f6 b7 82 74 3a d3 4a-b5 07 35 91 19 4f 11 7e   ....t:.J..5..O.~
-    0020 - f6 7d 6e 3d a3 00 9b b6-2c c4 6b 81 66 db cd a2   .}n=....,.k.f...
-    0030 - a2 62 40 ed cd e9 45 02-00 80 d0 bf a7 4e fa b0   .b@...E......N..
-    0040 - c4 9f 8f 81 17 83 33 89-b1 c1 86 c9 d1 18 d2 f3   ......3.........
-    0050 - 5f b3 ba 9f 1b 65 49 c3-7c 15 fa 81 36 50 2d f5   _....eI.|...6P-.
-    0060 - 45 a5 ec ff a5 6b 92 88-a2 a5 81 20 32 b8 04 8a   E....k..... 2...
-    0070 - d5 12 93 61 9e bf f0 bb-b1 a7 a9 e4 55 97 d7 17   ...a........U...
-    0080 - bc 8d b8 7c 6e 64 c8 88-5f a1 53 e9 47 21 27 f1   ...|nd.._.S.G!'.
-    0090 - e7 36 62 d6 47 59 6d 53-1f 00 39 24 e2 ec 9a 7e   .6b.GYmS..9$...~
-    00a0 - f6 9f 82 e5 70 da dd 98-de 19 47 4e ad 8f c9 65   ....p.....GN...e
-    00b0 - 2e 0d 09 be 49 9c ef 19-19 81 ab d8 41 50 8c ab   ....I.......AP..
-    00c0 - e0 72 53 ec 47 1e 3f 3c-c9 57 63 42 65 0b b8 66   .rS.G.?<.WcBe..f
+    0010 - 5a d3 ea 45 54 42 b7 51-9f 5a cf 5a 95 f8 23 31   Z..ETB.Q.Z.Z..#1
+    0020 - b6 3a ef 2f 16 37 40 f3-dc 19 13 09 cc ff 4c 6e   .:./.7@.......Ln
+    0030 - b7 48 85 1c b5 5b 2c 47-24 ba 8b de 8b 45 ef 11   .H...[,G$....E..
+    0040 - ea d9 23 f2 c1 84 a9 2b-01 e0 fb 92 4b 39 9d e0   ..#....+....K9..
+    0050 - 2e 1b bd 97 dd fa a7 42-0d 4d bc a5 c1 57 87 4c   .......B.M...W.L
+    0060 - fb fd 87 d4 1c 08 12 ef-33 e0 e9 d6 be da 58 91   ........3.....X.
+    0070 - 79 07 76 e9 19 e3 e9 d4-f5 e3 e6 3c 84 68 70 e5   y.v........<.hp.
+    0080 - a9 39 d8 ca 80 96 e3 a0-3e 83 d9 b5 55 a0 3e c4   .9......>...U.>.
+    0090 - b5 51 ea 8b d0 76 36 6d-20 54 18 d8 08 bd 9c 12   .Q...v6m T......
+    00a0 - cf 42 25 3a 15 30 12 ef-71 9e 20 69 94 d8 e8 67   .B%:.0..q. i...g
+    00b0 - ce 73 79 ad 18 d3 dc e4-93 64 77 7e 5a 3f 89 ff   .sy......dw~Z?..
+    00c0 - ff 25 e9 f0 0f 49 fb 57-26 85 e5 0c 13 35 36 72   .%...I.W&....56r
 
-    Start Time: 1673462028
+    Start Time: 1673468058
     Timeout   : 7200 (sec)
     Verify return code: 18 (self-signed certificate)
     Extended master secret: no
@@ -187,13 +207,13 @@ notAfter=Apr 12 23:59:59 2015 GMT
 === tcp.test.sh ===
 HTTP/1.1 301 Moved Permanently
 Server: nginx
-Date: Wed, 11 Jan 2023 18:33:51 GMT
+Date: Wed, 11 Jan 2023 20:14:21 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: close
 Location: https://duck.com/
 Strict-Transport-Security: max-age=31536000
-Expires: Thu, 11 Jan 2024 18:33:51 GMT
+Expires: Thu, 11 Jan 2024 20:14:21 GMT
 Cache-Control: max-age=31536000
 
 <html>
