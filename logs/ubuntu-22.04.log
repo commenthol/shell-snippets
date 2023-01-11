@@ -16,56 +16,59 @@ snippets
 export FOO='BAR'
 export HOME='/root'
 export HOSTNAME='nixtest'
+export LOG='ubuntu-22.04'
+export MY_TEST='1'
 export OLDPWD='/'
 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 export PWD='/snippets'
 export TERM='xterm'
 export WAT='1.0'
-export container='podman'
 === echo_stderr.test.sh ===
 INFO for your info
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 filtering...
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 INFO for your info
 === has_cmd.test.sh ===
 0
 127
 === ip_from_hostname.test.sh ===
+52.142.124.215
+found www.duck.com 52.142.124.215
 
-
-
+173.239.79.196
+found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Feb 23 21:17:08 UTC 2022
-2022-02-23T21:17:08+0000
-2022-02-23T21:17:08Z
+Wed Jan 11 18:33:47 UTC 2023
+2023-01-11T18:33:47+0000
+2023-01-11T18:33:47Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
-2022-02-23T00:00:00+0000
-2022-02-23T00:00:00Z
-Wed Feb 23 21:17:08 Asia 2022
-2022-02-23T21:17:08+0000
-2022-02-23T21:17:08Z
+2023-01-11T00:00:00+0000
+2023-01-11T00:00:00Z
+Wed Jan 11 18:33:47 Asia 2023
+2023-01-11T18:33:47+0000
+2023-01-11T18:33:47Z
 === jsonlog.test.sh ===
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"DEBUG","msg":"","time:":"2022-02-23T21:17:08+0000"}
+{"level":"DEBUG","msg":"","time:":"2023-01-11T18:33:47+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"INFO","msg":"","time:":"2022-02-23T21:17:08+0000"}
+{"level":"INFO","msg":"","time:":"2023-01-11T18:33:47+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"ERROR","msg":"","time:":"2022-02-23T21:17:08+0000"}
+{"level":"ERROR","msg":"","time:":"2023-01-11T18:33:47+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"FATAL","msg":"","time:":"2022-02-23T21:17:08+0000"}
+{"level":"FATAL","msg":"","time:":"2023-01-11T18:33:47+0000"}
 === npm_package_version.test.sh ===
 1.2.3-4
 === os_release.test.sh ===
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=22.04
 DISTRIB_CODENAME=jammy
-DISTRIB_DESCRIPTION="Ubuntu Jammy Jellyfish (development branch)"
-PRETTY_NAME="Ubuntu Jammy Jellyfish (development branch)"
+DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
+PRETTY_NAME="Ubuntu 22.04.1 LTS"
 NAME="Ubuntu"
 VERSION_ID="22.04"
-VERSION="22.04 (Jammy Jellyfish)"
+VERSION="22.04.1 LTS (Jammy Jellyfish)"
 VERSION_CODENAME=jammy
 ID=ubuntu
 ID_LIKE=debian
@@ -74,25 +77,132 @@ SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=jammy
+=== package_tool.test.sh ===
+apt-get
+=== ssl_info.test.sh ===
+
+--- ssl_info
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C = US, ST = California, L = San Francisco, O = "Cloudflare, Inc.", CN = gitlab.com
+Hash used: SHA256
+Signature type: ECDSA
+Verification: OK
+Server Temp Key: X25519, 253 bits
+DONE
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify error:num=18:self-signed certificate
+verify return:1
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   i:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256
+   v:NotBefore: Oct 27 19:09:10 2022 GMT; NotAfter: Oct 26 19:09:10 2024 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDeTCCAmGgAwIBAgIJAJWlQWpveElqMA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0y
+MjEwMjcxOTA5MTBaFw0yNDEwMjYxOTA5MTBaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+hvcNAQELBQADggEBAHOCRfreG+y9q2jxDTYOYESH+SIOPh1a4TDKfWMGQ5shdW7Q
+qlsRHqXmENFAalhHlNqGms1n77IdkIocygP9ZNZocyGwyLCDNn7YGdxCG4AlW2Lo
+NW7Bs86GUhUrWtahHpOnmrjQ/zzDH1T9pBxUQwA72x3SdgvfFu+WuAU2Dg/X6Ely
+IQ3a4/xy5NzlWsXBRvt67+uI2Fg3PGMenpWLD6SSLQzjjtEDXwv0dfBsYIt+m3QZ
+gOHdx459vr8bpqjBz09izM2W/uYHcjixXQVpKujN9AA6a7c5hiGpfXPdhiUmaHup
+CkR+c/8O1yyxkBMbttbp7VdUIXYAmB8yJuGoqe8=
+-----END CERTIFICATE-----
+subject=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+issuer=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: ECDH, prime256v1, 256 bits
+---
+SSL handshake has read 1599 bytes and written 450 bytes
+Verification error: self-signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: 8F8BCD87C82FBC3B482EEC7CBE1407419B8C9121E8570D7B28DD646A36902BA0
+    Session-ID-ctx: 
+    Master-Key: DF87BA76FAFF39B638278A6A3DD0627D609FE375D262123E11F599FB561DAF04EEE0C84E009D78819FDA4807B78BD3F3
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
+    0010 - 7f f6 b7 82 74 3a d3 4a-b5 07 35 91 19 4f 11 7e   ....t:.J..5..O.~
+    0020 - f6 7d 6e 3d a3 00 9b b6-2c c4 6b 81 66 db cd a2   .}n=....,.k.f...
+    0030 - a2 62 40 ed cd e9 45 02-00 80 d0 bf a7 4e fa b0   .b@...E......N..
+    0040 - c4 9f 8f 81 17 83 33 89-b1 c1 86 c9 d1 18 d2 f3   ......3.........
+    0050 - 5f b3 ba 9f 1b 65 49 c3-7c 15 fa 81 36 50 2d f5   _....eI.|...6P-.
+    0060 - 45 a5 ec ff a5 6b 92 88-a2 a5 81 20 32 b8 04 8a   E....k..... 2...
+    0070 - d5 12 93 61 9e bf f0 bb-b1 a7 a9 e4 55 97 d7 17   ...a........U...
+    0080 - bc 8d b8 7c 6e 64 c8 88-5f a1 53 e9 47 21 27 f1   ...|nd.._.S.G!'.
+    0090 - e7 36 62 d6 47 59 6d 53-1f 00 39 24 e2 ec 9a 7e   .6b.GYmS..9$...~
+    00a0 - f6 9f 82 e5 70 da dd 98-de 19 47 4e ad 8f c9 65   ....p.....GN...e
+    00b0 - 2e 0d 09 be 49 9c ef 19-19 81 ab d8 41 50 8c ab   ....I.......AP..
+    00c0 - e0 72 53 ec 47 1e 3f 3c-c9 57 63 42 65 0b b8 66   .rS.G.?<.WcBe..f
+
+    Start Time: 1673462028
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self-signed certificate)
+    Extended master secret: no
+---
+DONE
+
+--- ssl_dates
+notBefore=Oct 24 19:38:41 2022 GMT
+notAfter=Jan 22 19:38:40 2023 GMT
+notBefore=Apr  9 00:00:00 2015 GMT
+notAfter=Apr 12 23:59:59 2015 GMT
+
+--- ssl_is_valid
+0
+1
 === tcp.test.sh ===
-HTTP/1.1 301 Moved Permanently
-Server: nginx
-Date: Wed, 23 Feb 2022 21:17:08 GMT
-Content-Type: text/html
-Content-Length: 162
-Connection: close
-Location: https://duck.com/
-Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 21:17:08 GMT
-Cache-Control: max-age=31536000
-
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body>
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Wed, 11 Jan 2023 18:33:51 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Thu, 11 Jan 2024 18:33:51 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
 0
 0
 124

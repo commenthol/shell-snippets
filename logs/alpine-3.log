@@ -16,18 +16,19 @@ snippets
 export FOO='BAR'
 export HOME='/root'
 export HOSTNAME='nixtest'
+export LOG='alpine-3'
+export MY_TEST='1'
 export OLDPWD='/'
 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 export PWD='/snippets'
-export SHLVL='3'
+export SHLVL='4'
 export TERM='xterm'
 export WAT='1.0'
-export container='podman'
 === echo_stderr.test.sh ===
 INFO for your info
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 filtering...
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 INFO for your info
 === has_cmd.test.sh ===
 0
@@ -39,42 +40,162 @@ found www.duck.com match
 match
 found eff.org match
 === iso_date.test.sh ===
-Wed Feb 23 21:16:58 UTC 2022
-2022-02-23T21:16:58+0000
-2022-02-23T21:16:58Z
+Wed Jan 11 18:32:24 UTC 2023
+2023-01-11T18:32:24+0000
+2023-01-11T18:32:24Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
 date: invalid date 'TZ="America/Los_Angeles"'
 date: invalid date 'TZ="America/Los_Angeles"'
-Wed Feb 23 21:16:58 UTC 2022
-2022-02-23T21:16:58+0000
-2022-02-23T21:16:58Z
+Wed Jan 11 18:32:24 UTC 2023
+2023-01-11T18:32:24+0000
+2023-01-11T18:32:24Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:16:58+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:16:58+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T21:16:58+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T21:16:58+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:24+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:24+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2023-01-11T18:32:24+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2023-01-11T18:32:24+0000"}
 === npm_package_version.test.sh ===
 1.2.3-4
 === os_release.test.sh ===
-3.15.0
+3.17.1
 NAME="Alpine Linux"
 ID=alpine
-VERSION_ID=3.15.0
-PRETTY_NAME="Alpine Linux v3.15"
+VERSION_ID=3.17.1
+PRETTY_NAME="Alpine Linux v3.17"
 HOME_URL="https://alpinelinux.org/"
-BUG_REPORT_URL="https://bugs.alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+=== package_tool.test.sh ===
+apk
+=== ssl_info.test.sh ===
+
+--- ssl_info
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C = US, ST = California, L = San Francisco, O = "Cloudflare, Inc.", CN = gitlab.com
+Hash used: SHA256
+Signature type: ECDSA
+Verification: OK
+Server Temp Key: X25519, 253 bits
+DONE
+CONNECTED(00000003)
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify error:num=18:self-signed certificate
+verify return:1
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify return:1
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   i:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256
+   v:NotBefore: Oct 27 19:09:10 2022 GMT; NotAfter: Oct 26 19:09:10 2024 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDeTCCAmGgAwIBAgIJAJWlQWpveElqMA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0y
+MjEwMjcxOTA5MTBaFw0yNDEwMjYxOTA5MTBaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+hvcNAQELBQADggEBAHOCRfreG+y9q2jxDTYOYESH+SIOPh1a4TDKfWMGQ5shdW7Q
+qlsRHqXmENFAalhHlNqGms1n77IdkIocygP9ZNZocyGwyLCDNn7YGdxCG4AlW2Lo
+NW7Bs86GUhUrWtahHpOnmrjQ/zzDH1T9pBxUQwA72x3SdgvfFu+WuAU2Dg/X6Ely
+IQ3a4/xy5NzlWsXBRvt67+uI2Fg3PGMenpWLD6SSLQzjjtEDXwv0dfBsYIt+m3QZ
+gOHdx459vr8bpqjBz09izM2W/uYHcjixXQVpKujN9AA6a7c5hiGpfXPdhiUmaHup
+CkR+c/8O1yyxkBMbttbp7VdUIXYAmB8yJuGoqe8=
+-----END CERTIFICATE-----
+subject=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+issuer=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: ECDH, prime256v1, 256 bits
+---
+SSL handshake has read 1599 bytes and written 454 bytes
+Verification error: self-signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: EF595FD88F65134A34298AB3374E97D973C63CCD6DC98E5A8005D02D3C22AD75
+    Session-ID-ctx: 
+    Master-Key: 0B56DD2193CB4AA876BD917D18F136F3A9C9B8C7A506D56FF296B9254E78A36C5182771EC47126B161AA49FDF7510CAA
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
+    0010 - c5 6c ae b4 23 d7 ef 25-4d 60 8e 3d 83 48 c1 0a   .l..#..%M`.=.H..
+    0020 - db b0 f5 67 ab af aa 25-fe 4d 33 f0 20 c4 57 03   ...g...%.M3. .W.
+    0030 - 56 3e ea d5 ea 2c 30 f1-0c 39 ec 08 1d 20 e6 a5   V>...,0..9... ..
+    0040 - b2 15 99 26 01 2b c7 c0-4d df a3 e5 79 c0 54 a9   ...&.+..M...y.T.
+    0050 - cb 6d 7d 29 ad 13 d4 de-f1 8e 78 54 73 3e 4f f8   .m})......xTs>O.
+    0060 - df 29 03 02 12 25 a2 ed-f5 6b f0 e2 8e 13 bd 84   .)...%...k......
+    0070 - ed 2c 0b 32 69 37 46 91-6c 48 cd 31 f1 d9 b2 15   .,.2i7F.lH.1....
+    0080 - aa 15 a8 ca 36 b2 ef 2e-78 a4 27 3d 9b da 4e e2   ....6...x.'=..N.
+    0090 - 3b 6a 9f 2a a6 0b fc 8f-3c 3c 28 d4 9f 6a d9 52   ;j.*....<<(..j.R
+    00a0 - 53 90 38 5f 41 61 ae fa-f6 53 4e 02 eb 5f be 2f   S.8_Aa...SN.._./
+    00b0 - e9 fc 3b c4 d2 44 90 5a-b6 89 38 1c 39 0b 48 1e   ..;..D.Z..8.9.H.
+    00c0 - fa 1a fc 1a f6 59 c3 11-6c ef 35 24 8b 5f fa c6   .....Y..l.5$._..
+
+    Start Time: 1673461944
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self-signed certificate)
+    Extended master secret: no
+---
+DONE
+
+--- ssl_dates
+notBefore=Oct 24 19:38:41 2022 GMT
+notAfter=Jan 22 19:38:40 2023 GMT
+notBefore=Apr  9 00:00:00 2015 GMT
+notAfter=Apr 12 23:59:59 2015 GMT
+
+--- ssl_is_valid
+0
+1
 === tcp.test.sh ===
-timeout: can't execute 'bash': No such file or directory
-127
-timeout: can't execute 'bash': No such file or directory
-127
-timeout: can't execute 'bash': No such file or directory
-127
-timeout: can't execute 'bash': No such file or directory
-127
-timeout: can't execute 'bash': No such file or directory
-127
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Wed, 11 Jan 2023 18:32:27 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Thu, 11 Jan 2024 18:32:27 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+0
+0
+Terminated
+143
+0
+Terminated
+143
 === to_lower_case.test.sh ===
 hello world gÖrÜŞÜrÜz hoŞÇa kal groß
 hello world görüşürüz hoşça kal groß

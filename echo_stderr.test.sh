@@ -6,7 +6,7 @@
 echo "INFO for your info"
 
 # echo to stderr
-echo_stderr "ERROR this is a error on stderr"
+echo_stderr "ERROR this is an error on stderr"
 
 if [ "$1" != "filter" ]; then
 

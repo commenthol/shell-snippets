@@ -24,11 +24,13 @@ run_test_dockerized () {
 
 	$podman run -it --rm \
 		--add-host www.aa.aa:127.0.0.1 \
+		-e MY_TEST=1 \
+		-e LOG=$LOG \
 		--hostname nixtest \
 		--network=$NETWORK \
 		-v "$CWD/..:/snippets" \
 		$CONTAINER \
-		sh -c "cd /snippets; sh test_all.sh" | tee "$CWD"/../logs/$LOG.log 2>&1
+		sh -c "cd /snippets; sh scripts/single-run.sh"
 }
 
 run_test_dockerized docker.io/library/alpine:3

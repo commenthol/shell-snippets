@@ -16,45 +16,48 @@ snippets
 export FOO='BAR'
 export HOME='/root'
 export HOSTNAME='nixtest'
+export LOG='debian-bullseye-slim'
+export MY_TEST='1'
 export OLDPWD='/'
 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 export PWD='/snippets'
 export TERM='xterm'
 export WAT='1.0'
-export container='podman'
 === echo_stderr.test.sh ===
 INFO for your info
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 filtering...
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 INFO for your info
 === has_cmd.test.sh ===
 0
 127
 === ip_from_hostname.test.sh ===
+52.142.124.215
+found www.duck.com 52.142.124.215
 
-
-
+173.239.79.196
+found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Feb 23 21:16:59 UTC 2022
-2022-02-23T21:16:59+0000
-2022-02-23T21:16:59Z
+Wed Jan 11 18:32:35 UTC 2023
+2023-01-11T18:32:35+0000
+2023-01-11T18:32:35Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
-2022-02-23T08:00:00+0000
-2022-02-23T08:00:00Z
-Thu Feb 24 06:16:59 JST 2022
-2022-02-24T06:16:59+0900
-2022-02-23T21:16:59Z
+2023-01-11T08:00:00+0000
+2023-01-11T08:00:00Z
+Thu Jan 12 03:32:35 JST 2023
+2023-01-12T03:32:35+0900
+2023-01-11T18:32:35Z
 === jsonlog.test.sh ===
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"DEBUG","msg":"","time:":"2022-02-23T21:16:59+0000"}
+{"level":"DEBUG","msg":"","time:":"2023-01-11T18:32:35+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"INFO","msg":"","time:":"2022-02-23T21:16:59+0000"}
+{"level":"INFO","msg":"","time:":"2023-01-11T18:32:35+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"ERROR","msg":"","time:":"2022-02-23T21:16:59+0000"}
+{"level":"ERROR","msg":"","time:":"2023-01-11T18:32:35+0000"}
 /snippets/jsonlog.test.sh: 15: Bad substitution
-{"level":"FATAL","msg":"","time:":"2022-02-23T21:16:59+0000"}
+{"level":"FATAL","msg":"","time:":"2023-01-11T18:32:35+0000"}
 === npm_package_version.test.sh ===
 1.2.3-4
 === os_release.test.sh ===
@@ -67,25 +70,132 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
+=== package_tool.test.sh ===
+apt-get
+=== ssl_info.test.sh ===
+
+--- ssl_info
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C = US, ST = California, L = San Francisco, O = "Cloudflare, Inc.", CN = gitlab.com
+Hash used: SHA256
+Signature type: ECDSA
+Verification: OK
+Server Temp Key: X25519, 253 bits
+DONE
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   i:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDeTCCAmGgAwIBAgIJAJWlQWpveElqMA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0y
+MjEwMjcxOTA5MTBaFw0yNDEwMjYxOTA5MTBaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+hvcNAQELBQADggEBAHOCRfreG+y9q2jxDTYOYESH+SIOPh1a4TDKfWMGQ5shdW7Q
+qlsRHqXmENFAalhHlNqGms1n77IdkIocygP9ZNZocyGwyLCDNn7YGdxCG4AlW2Lo
+NW7Bs86GUhUrWtahHpOnmrjQ/zzDH1T9pBxUQwA72x3SdgvfFu+WuAU2Dg/X6Ely
+IQ3a4/xy5NzlWsXBRvt67+uI2Fg3PGMenpWLD6SSLQzjjtEDXwv0dfBsYIt+m3QZ
+gOHdx459vr8bpqjBz09izM2W/uYHcjixXQVpKujN9AA6a7c5hiGpfXPdhiUmaHup
+CkR+c/8O1yyxkBMbttbp7VdUIXYAmB8yJuGoqe8=
+-----END CERTIFICATE-----
+subject=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+
+issuer=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: ECDH, P-256, 256 bits
+---
+SSL handshake has read 1599 bytes and written 440 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: AEFC6E318B1ABAD3C69B4180CD60A13A205D05CA9CA1C20478805023E5B3265A
+    Session-ID-ctx: 
+    Master-Key: 1B715EED1FED6F1AE6FEB29E9D4FFE22C644D9D304998BE28C53C8D9A9678E26F62C36C5402876375BE36FE2C85629FE
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
+    0010 - 49 57 2c 73 bb 83 38 39-27 99 7e 30 aa f7 95 08   IW,s..89'.~0....
+    0020 - c7 05 e6 08 5e a6 ca 47-dc 6d 8d c1 7a 0b e6 60   ....^..G.m..z..`
+    0030 - 2b 66 b6 7d e7 21 a7 fa-45 a6 e3 c1 bf ab b4 76   +f.}.!..E......v
+    0040 - e8 bb 33 2f 69 3a ac f4-94 92 64 7a bb 38 be 83   ..3/i:....dz.8..
+    0050 - da 4f b7 27 80 1b 27 26-e9 94 4e a5 14 d8 a5 8e   .O.'..'&..N.....
+    0060 - dd 8f c5 7c d8 0a a6 63-04 a8 28 06 f3 eb 78 9a   ...|...c..(...x.
+    0070 - dd 99 12 e3 d0 fb 23 29-22 d9 0a 17 5c 35 0b a2   ......#)"...\5..
+    0080 - c9 d8 8a 30 1b fc 51 d4-66 ca 84 36 12 30 fc ff   ...0..Q.f..6.0..
+    0090 - f7 58 8f 7f 08 f6 9e 47-1c 3b 2d c2 af 37 81 12   .X.....G.;-..7..
+    00a0 - a2 dc a6 c5 87 d8 dd c9-dd fb 96 f8 1e e1 be d2   ................
+    00b0 - 8f 7f 84 90 8b 16 5c 3d-39 da 37 26 e3 22 d0 84   ......\=9.7&."..
+    00c0 - 93 60 3d 67 16 8b 3f 70-9a 8b d2 4c b8 9a 6a 3a   .`=g..?p...L..j:
+
+    Start Time: 1673461955
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: no
+---
+DONE
+
+--- ssl_dates
+notBefore=Oct 24 19:38:41 2022 GMT
+notAfter=Jan 22 19:38:40 2023 GMT
+notBefore=Apr  9 00:00:00 2015 GMT
+notAfter=Apr 12 23:59:59 2015 GMT
+
+--- ssl_is_valid
+0
+1
 === tcp.test.sh ===
-HTTP/1.1 301 Moved Permanently
-Server: nginx
-Date: Wed, 23 Feb 2022 21:16:59 GMT
-Content-Type: text/html
-Content-Length: 162
-Connection: close
-Location: https://duck.com/
-Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 21:16:59 GMT
-Cache-Control: max-age=31536000
-
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body>
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Wed, 11 Jan 2023 18:32:38 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Thu, 11 Jan 2024 18:32:38 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
 0
 0
 124

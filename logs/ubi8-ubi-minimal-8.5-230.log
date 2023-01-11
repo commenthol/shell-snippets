@@ -16,42 +16,46 @@ snippets
 export FOO="BAR"
 export HOME="/root"
 export HOSTNAME="nixtest"
+export LOG="ubi8-ubi-minimal-8.5-230"
+export MY_TEST="1"
 export OLDPWD="/"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export PWD="/snippets"
-export SHLVL="3"
+export SHLVL="4"
 export TERM="xterm"
 export WAT="1.0"
 export container="oci"
 === echo_stderr.test.sh ===
 INFO for your info
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 filtering...
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 INFO for your info
 === has_cmd.test.sh ===
 0
 1
 === ip_from_hostname.test.sh ===
+52.142.124.215
+found www.duck.com 52.142.124.215
 
-
-
+173.239.79.196
+found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Feb 23 21:17:05 UTC 2022
-2022-02-23T21:17:05+0000
-2022-02-23T21:17:05Z
+Wed Jan 11 18:33:31 UTC 2023
+2023-01-11T18:33:31+0000
+2023-01-11T18:33:31Z
 2038-01-19T03:14:07+0000
 2038-01-19T03:14:07Z
-2022-02-23T00:00:00+0000
-2022-02-23T00:00:00Z
-Wed Feb 23 21:17:05 Asia 2022
-2022-02-23T21:17:05+0000
-2022-02-23T21:17:05Z
+2023-01-11T00:00:00+0000
+2023-01-11T00:00:00Z
+Wed Jan 11 18:33:31 Asia 2023
+2023-01-11T18:33:31+0000
+2023-01-11T18:33:31Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:05+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:05+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T21:17:05+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T21:17:05+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:33:32+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:33:32+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2023-01-11T18:33:32+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2023-01-11T18:33:32+0000"}
 === npm_package_version.test.sh ===
 1.2.3-4
 === os_release.test.sh ===
@@ -74,26 +78,134 @@ REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
 REDHAT_SUPPORT_PRODUCT_VERSION="8.5"
 Red Hat Enterprise Linux release 8.5 (Ootpa)
 Red Hat Enterprise Linux release 8.5 (Ootpa)
-=== tcp.test.sh ===
-HTTP/1.1 301 Moved Permanently
-Server: nginx
-Date: Wed, 23 Feb 2022 21:17:05 GMT
-Content-Type: text/html
-Content-Length: 162
-Connection: close
-Location: https://duck.com/
-Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 21:17:05 GMT
-Cache-Control: max-age=31536000
-
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body>
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+=== package_tool.test.sh ===
+microdnf
+=== ssl_info.test.sh ===
+
+--- ssl_info
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C = US, ST = California, L = San Francisco, O = "Cloudflare, Inc.", CN = gitlab.com
+Hash used: SHA256
+Signature type: ECDSA
+Verification: OK
+Server Temp Key: X25519, 253 bits
+DONE
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   i:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDeTCCAmGgAwIBAgIJAJWlQWpveElqMA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0y
+MjEwMjcxOTA5MTBaFw0yNDEwMjYxOTA5MTBaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+hvcNAQELBQADggEBAHOCRfreG+y9q2jxDTYOYESH+SIOPh1a4TDKfWMGQ5shdW7Q
+qlsRHqXmENFAalhHlNqGms1n77IdkIocygP9ZNZocyGwyLCDNn7YGdxCG4AlW2Lo
+NW7Bs86GUhUrWtahHpOnmrjQ/zzDH1T9pBxUQwA72x3SdgvfFu+WuAU2Dg/X6Ely
+IQ3a4/xy5NzlWsXBRvt67+uI2Fg3PGMenpWLD6SSLQzjjtEDXwv0dfBsYIt+m3QZ
+gOHdx459vr8bpqjBz09izM2W/uYHcjixXQVpKujN9AA6a7c5hiGpfXPdhiUmaHup
+CkR+c/8O1yyxkBMbttbp7VdUIXYAmB8yJuGoqe8=
+-----END CERTIFICATE-----
+subject=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+
+issuer=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: ECDH, P-256, 256 bits
+---
+SSL handshake has read 1599 bytes and written 446 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: CD5F445AA08E0172F7001F3AF9DB92784CE50D41F74F588AFD6F83D88049F27B
+    Session-ID-ctx: 
+    Master-Key: FAF97AB3326972FAD3DDC043A708B715CCD31F89A30D3FD0EB1807B7FA0EC4C2EC54D1CFDB2F3FB28FF3AD6B8A7CC148
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
+    0010 - d4 8a f7 2e 87 e7 b5 1c-11 4d f3 a3 cb 44 1a 82   .........M...D..
+    0020 - ab 95 fa fa bd 2d 26 4c-94 3e 2c a7 6c ec 61 ff   .....-&L.>,.l.a.
+    0030 - 54 ce 8b aa 41 25 20 77-3a 37 99 52 3a d8 ce 04   T...A% w:7.R:...
+    0040 - 84 bf 8c f6 da 0e 26 21-c1 24 4b 9c 22 fc c0 aa   ......&!.$K."...
+    0050 - 23 4c 1b 4d 4a 90 a3 7e-21 8d ce 4d 9b f6 83 3b   #L.MJ..~!..M...;
+    0060 - 39 a3 64 c8 67 bc a9 97-6b 84 25 b8 be d1 a0 35   9.d.g...k.%....5
+    0070 - 15 67 fe 6f 24 67 ff fb-05 db 83 e3 22 4f 38 99   .g.o$g......"O8.
+    0080 - 33 ea f8 89 d2 b6 3e af-34 20 2e 3b 43 ae 37 cd   3.....>.4 .;C.7.
+    0090 - bd 97 46 fb 98 60 2b 54-77 5f a4 43 99 99 b6 04   ..F..`+Tw_.C....
+    00a0 - 8c ec cb 76 ba 2a 61 0f-39 10 d6 95 1c 87 14 24   ...v.*a.9......$
+    00b0 - b5 c9 4b a6 de 92 02 90-f9 9b 81 a8 a4 7e 29 ae   ..K..........~).
+    00c0 - 09 13 09 0e b2 05 48 b8-d7 ce 82 5b 2b 0c 04 dc   ......H....[+...
+
+    Start Time: 1673462013
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: no
+---
+DONE
+
+--- ssl_dates
+notBefore=Oct 24 19:38:41 2022 GMT
+notAfter=Jan 22 19:38:40 2023 GMT
+notBefore=Apr  9 00:00:00 2015 GMT
+notAfter=Apr 12 23:59:59 2015 GMT
+
+--- ssl_is_valid
 0
+1
+=== tcp.test.sh ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Wed, 11 Jan 2023 18:33:37 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Thu, 11 Jan 2024 18:33:37 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+cat: -: Connection reset by peer
+1
 0
 124
 0

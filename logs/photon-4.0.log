@@ -16,42 +16,45 @@ snippets
 export FOO="BAR"
 export HOME="/root"
 export HOSTNAME="nixtest"
+export LOG="photon-4.0"
+export MY_TEST="1"
 export OLDPWD="/"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export PWD="/snippets"
 export SHLVL="3"
 export TERM="xterm"
 export WAT="1.0"
-export container="podman"
 === echo_stderr.test.sh ===
 INFO for your info
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 filtering...
-ERROR this is a error on stderr
+ERROR this is an error on stderr
 INFO for your info
 === has_cmd.test.sh ===
 0
 1
 === ip_from_hostname.test.sh ===
+52.142.124.215
+found www.duck.com 52.142.124.215
 
-
-
+173.239.79.196
+found eff.org 173.239.79.196
 === iso_date.test.sh ===
-Wed Feb 23 21:17:02 UTC 2022
-2022-02-23T21:17:02+0000
-2022-02-23T21:17:02Z
+Wed Jan 11 18:32:45 UTC 2023
+2023-01-11T18:32:45+0000
+2023-01-11T18:32:45Z
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=@2147483647' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
 date: Unknown option 'date=TZ="America/Los_Angeles"' (see "date --help")
-Wed Feb 23 21:17:02 Asia 2022
-2022-02-23T21:17:02+0000
-2022-02-23T21:17:02Z
+Wed Jan 11 18:32:45 Asia 2023
+2023-01-11T18:32:45+0000
+2023-01-11T18:32:45Z
 === jsonlog.test.sh ===
-{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:02+0000"}
-{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2022-02-23T21:17:02+0000"}
-{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2022-02-23T21:17:02+0000"}
-{"level":"FATAL","msg":"exiting now","time:":"2022-02-23T21:17:02+0000"}
+{"level":"DEBUG","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:45+0000"}
+{"level":"INFO","msg":"this is a message \" with a\t quote","time:":"2023-01-11T18:32:45+0000"}
+{"level":"ERROR","msg":"this is a message\nspanning over\nseveral \"lines\"\nyes","time:":"2023-01-11T18:32:45+0000"}
+{"level":"FATAL","msg":"exiting now","time:":"2023-01-11T18:32:45+0000"}
 === npm_package_version.test.sh ===
 ./npm_package_version.sh: line 4: tr: command not found
 
@@ -70,32 +73,139 @@ HOME_URL="https://vmware.github.io/photon/"
 BUG_REPORT_URL="https://github.com/vmware/photon/issues"
 VMware Photon OS 4.0
 PHOTON_BUILD_NUMBER=2f5aad892
+=== package_tool.test.sh ===
+yum
+=== ssl_info.test.sh ===
+
+--- ssl_info
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C = US, ST = California, L = San Francisco, O = "Cloudflare, Inc.", CN = gitlab.com
+Hash used: SHA256
+Signature type: ECDSA
+Verification: OK
+Server Temp Key: X25519, 253 bits
+DONE
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify error:num=18:self-signed certificate
+verify return:1
+depth=0 C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   i:C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256
+   v:NotBefore: Oct 27 19:09:10 2022 GMT; NotAfter: Oct 26 19:09:10 2024 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDeTCCAmGgAwIBAgIJAJWlQWpveElqMA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNp
+c2NvMQ8wDQYDVQQKDAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTAeFw0y
+MjEwMjcxOTA5MTBaFw0yNDEwMjYxOTA5MTBaMGIxCzAJBgNVBAYTAlVTMRMwEQYD
+VQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ8wDQYDVQQK
+DAZCYWRTU0wxFTATBgNVBAMMDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2
+PmzAS2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMW
+hyefdOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3A
+xPxTuW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqve
+ww9HdFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SY
+QCeFxxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaMyMDAwCQYDVR0T
+BAIwADAjBgNVHREEHDAaggwqLmJhZHNzbC5jb22CCmJhZHNzbC5jb20wDQYJKoZI
+hvcNAQELBQADggEBAHOCRfreG+y9q2jxDTYOYESH+SIOPh1a4TDKfWMGQ5shdW7Q
+qlsRHqXmENFAalhHlNqGms1n77IdkIocygP9ZNZocyGwyLCDNn7YGdxCG4AlW2Lo
+NW7Bs86GUhUrWtahHpOnmrjQ/zzDH1T9pBxUQwA72x3SdgvfFu+WuAU2Dg/X6Ely
+IQ3a4/xy5NzlWsXBRvt67+uI2Fg3PGMenpWLD6SSLQzjjtEDXwv0dfBsYIt+m3QZ
+gOHdx459vr8bpqjBz09izM2W/uYHcjixXQVpKujN9AA6a7c5hiGpfXPdhiUmaHup
+CkR+c/8O1yyxkBMbttbp7VdUIXYAmB8yJuGoqe8=
+-----END CERTIFICATE-----
+subject=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+issuer=C = US, ST = California, L = San Francisco, O = BadSSL, CN = *.badssl.com
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: ECDH, prime256v1, 256 bits
+---
+SSL handshake has read 1599 bytes and written 454 bytes
+Verification error: self-signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID: D3DCA530E4885375B7EE715E6F70BAE2B50775CDE1BDF949CD4F7D7C3031440E
+    Session-ID-ctx: 
+    Master-Key: F471A63BA4F2D8229BD357676C94E2C8F93CE99A2B533589F08764AFD28D042DC627C3AF59416951F384D5F39D6E7D54
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 89 85 67 6e 95 26 dd 26-af 26 d9 7e 3f d5 7c a2   ..gn.&.&.&.~?.|.
+    0010 - 95 b6 f1 de 42 a3 78 09-72 60 da e4 10 da cf 95   ....B.x.r`......
+    0020 - a9 7e c9 69 ef 7f 02 b6-af e0 00 26 d5 cc b9 d0   .~.i.......&....
+    0030 - de 99 2c e1 59 ed 65 95-e9 4e 12 c3 06 3f 40 29   ..,.Y.e..N...?@)
+    0040 - d3 80 7a b6 11 8e 0b 3c-20 67 c8 11 83 9f eb 85   ..z....< g......
+    0050 - 72 b0 f5 ff e2 3b 2a 71-90 d3 97 b0 c8 d3 7d ec   r....;*q......}.
+    0060 - e4 dd f3 1b 42 d0 a6 af-c3 5e a3 56 75 ea 93 02   ....B....^.Vu...
+    0070 - d2 e6 1a 2b 86 f9 8c 6a-5f c6 fe eb ee a5 7d 9b   ...+...j_.....}.
+    0080 - da 63 75 7a fa f2 45 f4-d6 5e d0 8b 4d e3 b8 94   .cuz..E..^..M...
+    0090 - 8d 76 cf 2e f0 65 47 2f-c2 4d f3 64 f2 02 b8 e8   .v...eG/.M.d....
+    00a0 - bf c1 94 a4 32 51 c3 b2-83 dc 18 bc ae 2d 29 2b   ....2Q.......-)+
+    00b0 - ac a0 a6 6c f0 78 81 aa-db 66 cd 36 ae 8f 24 93   ...l.x...f.6..$.
+    00c0 - 50 90 e7 67 18 6c 7a 75-cc ab af 46 93 42 dc cb   P..g.lzu...F.B..
+
+    Start Time: 1673461965
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self-signed certificate)
+    Extended master secret: no
+---
+DONE
+
+--- ssl_dates
+notBefore=Oct 24 19:38:41 2022 GMT
+notAfter=Jan 22 19:38:40 2023 GMT
+notBefore=Apr  9 00:00:00 2015 GMT
+notAfter=Apr 12 23:59:59 2015 GMT
+
+--- ssl_is_valid
+0
+1
 === tcp.test.sh ===
-HTTP/1.1 301 Moved Permanently
-Server: nginx
-Date: Wed, 23 Feb 2022 21:17:02 GMT
-Content-Type: text/html
-Content-Length: 162
-Connection: close
-Location: https://duck.com/
-Strict-Transport-Security: max-age=31536000
-Expires: Thu, 23 Feb 2023 21:17:02 GMT
-Cache-Control: max-age=31536000
-
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body>
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Wed, 11 Jan 2023 18:32:48 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: close
+Location: https://duck.com/
+Strict-Transport-Security: max-age=31536000
+Expires: Thu, 11 Jan 2024 18:32:48 GMT
+Cache-Control: max-age=31536000
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
 0
 0
 124
 0
 124
 === to_lower_case.test.sh ===
-./to_lower_case.sh: line 5: tr: command not found
+./to_lower_case.sh: line 6: tr: command not found
 hello world görüşürüz hoşça kal groß
 === to_upper_case.test.sh ===
 ./to_upper_case.sh: line 5: tr: command not found

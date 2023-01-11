@@ -1,2 +1,3 @@
 test/*.ini
 test/certs
+logs/current.log
