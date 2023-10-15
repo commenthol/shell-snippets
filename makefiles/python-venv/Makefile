@@ -9,12 +9,12 @@ VENV_ACTIVATE=. ${VENV}/bin/activate
 default: tests
 
 ${VENV}:
-	@echo "Creating Python environment..." >&2
+	@echo "Creating Python virtual environment..." >&2
 	@${PYTHON} -m venv ${VENV}
 	@echo "Updating pip..." >&2
 	@${VENV_ACTIVATE}; pip install -U pip pipenv && pipenv install && pipenv install -d autopep8
 
-.PHONY: active 
+.PHONY: active
 active:
 	${VENV_ACTIVATE} && exec $$SHELL
 
