@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+CWD=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+cd "$CWD"
+
+function run {
+	echo run
+}
+
+# ... general ...
+
+function docs {
+	## open repo url in browser
+	local REPO_URL=https://github.com/commenthol/shell-snippets
+	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+		xdg-open $REPO_URL
+	elif [[ "$OSTYPE" == "darwin"* ]]; then
+		open $REPO_URL
+	else
+		echo open $REPO_URL
+	fi
+}
+
+# ... python dev ...
+
+export PIPENV_DONT_LOAD_ENV=1
+
+function _is_zsh_sourced {
+	if [ -n "$ZSH_VERSION" ]; then
+		case $ZSH_EVAL_CONTEXT in *:file:*) return 0;; esac
+	fi
+	return 1  # NOT sourced.
+}
+
+function _activate_firsttime {
+	if [[ ! -d .venv ]]; then
+		echo "Creating Python virtual environment"
+		python3 -m venv .venv
+		. ./.venv/bin/activate
+		./run install
+	fi
+}
+
+function activate {
+	# sourcing in zsh does not work; needs to run with `source run activate`
+	if [[ ${SHELL##*/} = "zsh" ]]; then
+		_is_zsh_sourced
+		if [[ $? = 1 ]]; then
+			echo "run with"
+			echo "  source run activate"
+			exit 1
+		fi
+		_activate_firsttime
+		. ./.venv/bin/activate
+	else
+		_activate_firsttime
+		. ./.venv/bin/activate && exec $SHELL -i
+	fi
+}
+
+function install {
+	pip install -U pip pipenv && pipenv install -d
+}
+
+function freeze {
+	pipenv requirements > requirements.txt
+	pipenv requirements --dev-only > requirements-dev.txt
+}
+
+# ... ignition ...
+
+function help {
+	# declare -F does not works in zsh!
+	declare -F | sed -e 's/declare -f /    /; /    _[a-z]/d'
+}
+
+if test -z "$1"; then
+	help
+else
+	$1 ${*:2}
+fi
